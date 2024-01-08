@@ -8,5 +8,6 @@
     "module": "CommonJS",
     "target": "es5"
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "skipLibCheck": true
 }
