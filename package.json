@@ -44,7 +44,7 @@
     "reset": "npx prisma migrate reset",
     "status": "npx prisma migrate status",
     "studio": "npx prisma studio",
-    "prebuild": "npm install prisma --save-dev && npm install @prisma/client@dev prisma@dev && npx prisma generate",
+    "prebuild": "npm install prisma --save-dev && npm install @prisma/client@dev prisma@dev && npx prisma generate && npm install typescript",
     "build": "npx tsc"
   }
 }
