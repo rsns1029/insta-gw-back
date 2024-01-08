@@ -46,5 +46,7 @@
     "studio": "npx prisma studio",
     "prebuild": "npm install prisma --save-dev && npm install @prisma/client@dev prisma@dev && npx prisma generate && npm install typescript",
     "build": "npx tsc"
+  },"engine": {
+    "node": "20.5.1"
   }
 }
