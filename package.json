@@ -1,6 +1,9 @@
 {
   "name": "instagram-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "description": "instagram-backend",
   "dependencies": {
     "@graphql-tools/load-files": "^6.5.3",
@@ -46,7 +49,5 @@
     "studio": "npx prisma studio",
     "prebuild": "npm install prisma --save-dev && npm install @prisma/client@dev prisma@dev && npx prisma generate && npm install typescript",
     "build": "npx tsc"
-  },"engine": {
-    "node": "20.5.1"
   }
 }
