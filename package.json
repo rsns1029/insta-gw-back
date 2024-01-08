@@ -2,10 +2,6 @@
   "name": "instagram-backend",
   "version": "1.0.0",
   "description": "instagram-backend",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GitHubGW/instagram-backend.git"
-  },
   "dependencies": {
     "@graphql-tools/load-files": "^6.5.3",
     "@graphql-tools/merge": "^8.2.2",
@@ -50,12 +46,5 @@
     "status": "npx prisma migrate status",
     "studio": "npx prisma studio",
     "build": "npx tsc"
-  },
-  "keywords": [],
-  "author": "GW <kowonp@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GitHubGW/instagram-backend/issues"
-  },
-  "homepage": "https://github.com/GitHubGW/instagram-backend#readme"
+  }
 }
