@@ -45,6 +45,7 @@
     "reset": "npx prisma migrate reset",
     "status": "npx prisma migrate status",
     "studio": "npx prisma studio",
+    "prebuild": "npx prisma generate",
     "build": "npx tsc"
   }
 }
