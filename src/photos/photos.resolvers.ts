@@ -40,7 +40,7 @@ const resolvers: Resolvers = {
         const countedLikes: number = await prisma.like.count({ where: { photoId: parent.id } });
         return countedLikes;
       } catch (error) {
-        console.log("totalLikes error!!");
+        console.log("totalLikes error!! :" , error);
         return 0;
       }
     },

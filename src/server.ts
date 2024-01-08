@@ -44,6 +44,7 @@ const startServer = async (): Promise<void> => {
     schema,
     context: async ({ req }) => {
       const foundUser: User | null = await handleGetLoggedInUser(req.headers.token);
+      console.log("foundUser : " + foundUser);
       return { prisma, loggedInUser: foundUser, handleCheckLogin };
     },
     introspection: true,

@@ -16,7 +16,7 @@ export const handleUploadFileToS3 = async (uploadedFile: any, foldername: string
     const readStream: ReadStream = createReadStream();
     const { Location }: AWS.S3.ManagedUpload.SendData = await s3
       .upload({
-        Bucket: "instagram-gw-bucket",
+        Bucket: "instaclone-uploads-rsns",
         Key: `${foldername}/${username}/${newFilename}`,
         Body: readStream,
         ACL: "public-read-write",
@@ -24,7 +24,7 @@ export const handleUploadFileToS3 = async (uploadedFile: any, foldername: string
       .promise();
     return Location;
   } catch (error) {
-    console.log("handleUploadFileToS3 error");
+    console.log("handleUploadFileToS3 error : ", error);
     return "";
   }
 };
@@ -35,7 +35,7 @@ export const handleDeleteFileFromS3 = async (fileUrl: string): Promise<void> => 
     const fileKey: string = decodedFileUrl.split("amazonaws.com/")[1];
     await s3
       .deleteObject({
-        Bucket: "instagram-gw-bucket",
+        Bucket: "instaclone-uploads-rsns",
         Key: fileKey,
       })
       .promise();

@@ -24,20 +24,21 @@ const resolvers: Resolvers = {
         let photoUrl: string = "";
 
         // 개발 환경에서 파일 업로드
-        if (process.env.NODE_ENV === "development" && photo) {
-          const { filename, createReadStream }: AvatarFile = photo.file;
-          const newFilename: string = `${Date.now()}-${filename}`;
-          const readStream: ReadStream = createReadStream();
-          const writeStream: WriteStream = createWriteStream(`${process.cwd()}/uploads/${newFilename}`);
-          readStream.pipe(writeStream);
-          photoUrl = `http://localhost:${process.env.PORT}/uploads/${newFilename}`;
-          await finished(writeStream);
-        }
+        // if (process.env.NODE_ENV === "development" && photo) {
+        //   const { filename, createReadStream }: AvatarFile = photo.file;
+        //   const newFilename: string = `${Date.now()}-${filename}`;
+        //   const readStream: ReadStream = createReadStream();
+        //   const writeStream: WriteStream = createWriteStream(`${process.cwd()}/uploads/${newFilename}`);
+        //   readStream.pipe(writeStream);
+        //   photoUrl = `http://localhost:${process.env.PORT}/uploads/${newFilename}`;
+        //   console.log("here1");
+        //   await finished(writeStream);
+        // }
 
         // 배포 환경에서 파일 업로드
-        if (process.env.NODE_ENV !== "development" && photo) {
-          photoUrl = await handleUploadFileToS3(photo, "photos", loggedInUser?.username as string);
-        }
+        console.log("here2");
+        photoUrl = await handleUploadFileToS3(photo, "photos", loggedInUser?.username as string);
+
 
         const createdPhoto: Photo = await prisma.photo.create({
           data: {
@@ -49,7 +50,7 @@ const resolvers: Resolvers = {
         });
         return { ok: true, message: "사진 업로드에 성공하였습니다.", photo: createdPhoto };
       } catch (error) {
-        console.log("uploadPhoto error");
+        console.log("uploadPhoto error : " , error);
         return { ok: false, message: "사진 업로드에 실패하였습니다." };
       }
     },
