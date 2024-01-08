@@ -19,7 +19,7 @@ const resolvers: Resolvers = {
     },
     hashtags: async (parent: Photo, __, { prisma }: Context): Promise<Hashtag[] | null> => {
       try {
-        const foundHashtags: Hashtag[] = await prisma.photo.findUnique({ where: { id: parent.id } }).hashtags();
+        const foundHashtags: Hashtag[] = await prisma.photo.findUnique({ where: { id: parent.id } }).hashtags() ?? [];
         return foundHashtags;
       } catch (error) {
         console.log("hashtags error");
@@ -28,7 +28,7 @@ const resolvers: Resolvers = {
     },
     comments: async (parent: Photo, __, { prisma }: Context): Promise<Comment[] | null> => {
       try {
-        const foundComments: Comment[] = await await prisma.photo.findUnique({ where: { id: parent.id } }).comments({ include: { user: true } });
+        const foundComments: Comment[] = await await prisma.photo.findUnique({ where: { id: parent.id } }).comments({ include: { user: true } }) ?? [];
         return foundComments;
       } catch (error) {
         console.log("comments error");

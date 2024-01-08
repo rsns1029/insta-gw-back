@@ -25,7 +25,7 @@ const resolvers: Resolvers = {
           cursor: cursor === undefined ? undefined : { username: cursor },
           skip: cursor === undefined ? 0 : 1,
           take: 20,
-        });
+        }) ?? [];
         return { ok: true, message: "팔로워 보기에 성공하였습니다.", followers: foundFollowers };
       } catch (error) {
         console.log("seeFollowers error");

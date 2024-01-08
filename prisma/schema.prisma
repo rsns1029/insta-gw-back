@@ -18,8 +18,8 @@ model User {
   password  String
   bio       String?
   avatarUrl String?
-  following User[]    @relation(name: "FollowRelation", references: [id])
-  followers User[]    @relation(name: "FollowRelation", references: [id])
+  following User[]    @relation(name: "FollowRelation")
+  followers User[]    @relation(name: "FollowRelation")
   photos    Photo[]
   likes     Like[]
   comments  Comment[]
